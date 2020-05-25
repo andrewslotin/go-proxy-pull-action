@@ -12,6 +12,29 @@ e.g. `contrib/awesomity/v1.2.3`.
 Usage
 -----
 
+Create a new workflow file with following context:
+
+```yaml
+on:
+  release:
+    types:
+      - created
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - '**/v[0-9]+.[0-9]+.[0-9]+'
+
+jobs:
+  build:
+    name: Renew documentation
+    runs-on: ubuntu-latest
+    steps:
+    - name: Pull new module version
+      uses: andrewslotin/go-proxy-pull-action@master
+```
+
+This will trigger the action each time whenever a new release is published for a tag that looks either like `vX.Y.Z` or
+`submodule/path/vX.Y.Z`.
+
 Why?
 ----
 

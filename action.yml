@@ -1,0 +1,14 @@
+name: 'Go proxy warming'
+description: 'Pull the new release of a module to the Go proxy cache'
+author: 'Andrey Slotin'
+inputs:
+  goproxy:
+    description: 'URL of the proxy to be passed to `go get` as GOPROXY='
+    required: false
+    default: 'https://proxy.golang.org'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+branding:
+  icon: 'download'
+  color: 'blue'
