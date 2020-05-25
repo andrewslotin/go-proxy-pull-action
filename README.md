@@ -12,7 +12,7 @@ e.g. `contrib/awesomity/v1.2.3`.
 Usage
 -----
 
-Create a new workflow file with following context:
+To renew the documentation on [pkg.go.dev](https://pkg.go.dev) reate a new workflow file with following context:
 
 ```yaml
 on:
@@ -34,6 +34,17 @@ jobs:
 
 This will trigger the action each time whenever a new release is published for a tag that looks either like `vX.Y.Z` or
 `submodule/path/vX.Y.Z`.
+
+### Custom proxy
+
+The action accepts `gopath` parameter to specify the URL of a self-hosted or any other Go proxy instead of https://proxy.golang.org. For example to make sure that [GoCenter](https://gocenter.io) has the latest version of your module provide `https://gocenter.io` as a value for `goproxy` parameter:
+
+```yaml
+- name: Pull new module version
+  uses: andrewslotin/go-proxy-pull-action@master
+  with:
+    goproxy: https://gocenter.io
+```
 
 Why?
 ----
