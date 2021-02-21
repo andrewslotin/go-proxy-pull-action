@@ -16,9 +16,7 @@ To renew the documentation on [pkg.go.dev](https://pkg.go.dev) reate a new workf
 
 ```yaml
 on:
-  release:
-    types:
-      - created
+  push:
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
       - '**/v[0-9]+.[0-9]+.[0-9]+'
