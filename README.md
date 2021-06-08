@@ -12,7 +12,7 @@ e.g. `contrib/awesomity/v1.2.3`.
 Usage
 -----
 
-To renew the documentation on [pkg.go.dev](https://pkg.go.dev) reate a new workflow file with following context:
+To renew the documentation on [pkg.go.dev](https://pkg.go.dev) create a new workflow file with following context:
 
 ```yaml
 on:
