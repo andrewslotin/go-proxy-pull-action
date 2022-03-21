@@ -17,4 +17,5 @@ fi
 export GO111MODULE=on
 export GOPROXY="$INPUT_GOPROXY"
 
-go get -d "$PACKAGE@$VERSION"
+go mod init dummy
+go get "$PACKAGE@$VERSION"
