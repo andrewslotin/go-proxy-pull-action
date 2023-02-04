@@ -6,6 +6,10 @@ inputs:
     description: 'URL of the proxy to be passed to `go get` as GOPROXY='
     required: false
     default: 'https://proxy.golang.org'
+  import_path:
+    description: 'Package import path. If not set, github.com/<user>/<repo> is used as a default'
+    required: false
+    default: ''
 runs:
   using: 'docker'
   image: 'Dockerfile'
