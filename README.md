@@ -46,6 +46,17 @@ The action accepts `gopath` parameter to specify the URL of a self-hosted or any
     goproxy: https://gocenter.io
 ```
 
+### Custom import path
+
+In case your module uses custom import path, such as `example.com/myproject`, an attempt to download it using its GitHub reporitory URL will result in an error. In this case you need to provide the import path of your package as an input:
+
+```yaml
+- name: Pull new module version
+  uses: andrewslotin/go-proxy-pull-action@v1.1.0
+  with:
+      import_path: example.com/myproject
+```
+
 Why?
 ----
 
