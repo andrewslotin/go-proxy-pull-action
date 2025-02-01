@@ -1,10 +1,18 @@
-Go proxy warming action
+Go Proxy Cache Updater
 =======================
+
+Note
+-----
+
+This is a fork of `andrewslotin/go-proxy-pull-action`.
+
+Go Proxy Cache Updater Action
+-----
 
 This action ensures that a newly released version of a Go module is pulled to the specified proxy.
 
 Each time there is a new tag created in repository with a name that looks like a [semantic version](https://blog.golang.org/publishing-go-modules), the action gets triggered, pulling this version with `go get` via the
-configured proxy (https://proxy.golang.org by default).
+configured proxy (<https://proxy.golang.org> by default).
 
 The action also recognizes the tags that version submodules stored within the same repository,
 e.g. `contrib/awesomity/v1.2.3`.
@@ -29,30 +37,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Pull new module version
-      uses: andrewslotin/go-proxy-pull-action@master
+      uses: nicholas-fedor/go-proxy-pull-action@master
 ```
 
 This will trigger the action each time whenever a new release is published for a tag that looks either like `vX.Y.Z` or
 `submodule/path/vX.Y.Z`.
 
-### Custom proxy
+Custom proxy
+-----
 
-The action accepts `gopath` parameter to specify the URL of a self-hosted or any other Go proxy instead of https://proxy.golang.org. For example to make sure that [GoCenter](https://gocenter.io) has the latest version of your module provide `https://gocenter.io` as a value for `goproxy` parameter:
+The action accepts `gopath` parameter to specify the URL of a self-hosted or any other Go proxy instead of <https://proxy.golang.org>. For example to make sure that [GoCenter](https://gocenter.io) has the latest version of your module provide `https://gocenter.io` as a value for `goproxy` parameter:
 
 ```yaml
 - name: Pull new module version
-  uses: andrewslotin/go-proxy-pull-action@master
+  uses: nicholas-fedor/go-proxy-pull-action@master
   with:
     goproxy: https://gocenter.io
 ```
 
-### Custom import path
+Custom import path
+-----
 
-In case your module uses custom import path, such as `example.com/myproject`, an attempt to download it using its GitHub reporitory URL will result in an error. In this case you need to provide the import path of your package as an input:
+In case your module uses custom import path, such as `example.com/myproject`, an attempt to download it using its GitHub repository URL will result in an error. In this case you need to provide the import path of your package as an input:
 
 ```yaml
 - name: Pull new module version
-  uses: andrewslotin/go-proxy-pull-action@v1.1.0
+  uses: nicholas-fedor/go-proxy-pull-action@v1.1.0
   with:
       import_path: example.com/myproject
 ```
