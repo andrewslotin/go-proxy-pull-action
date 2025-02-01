@@ -1,6 +1,6 @@
-name: 'Go proxy warming'
+name: 'Go Proxy Cache Updater'
 description: 'Pull the new release of a module to the Go proxy cache'
-author: 'Andrey Slotin'
+author: 'Nicholas Fedor'
 inputs:
   goproxy:
     description: 'URL of the proxy to be passed to `go get` as GOPROXY='
